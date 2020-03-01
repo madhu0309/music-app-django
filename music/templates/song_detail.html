@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body_block %}
+<body>
+
+<div class = "container">
+    <h3>{{ song.song_title }}</h3>
+
+    <audio controls>
+        <source src="{{  song.audio_file.url }}" type="audio/ogg">
+        <source src="{{  song.audio_file.url }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+<div class = "container">
+<div id="favourite-section">
+  {% if is_favourite %}
+  <a href="{% url 'favourite_song' id=song.id %}">
+    <i class="fas fa-heart fa-lg"></i>
+  </a>
+  {% else %}
+  <a href="{% url 'favourite_song' id=song.id %}">
+    <i class="far fa-heart fa-lg"></i>
+  </a>
+  {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}

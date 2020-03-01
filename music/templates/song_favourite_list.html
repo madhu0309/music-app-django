@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class = "container">
+<div class = "row">
+    {% for song in favourite_songs %}
+        <div class = "col-md-6">
+            <div class="img-thumbnail" >
+                    <a href="{{ song.audio_file.url }}">{{ song.song_title }}</a>
+                
+                </div>
+                <br>
+            </div>
+                
+        {% empty %}
+            <div class = "container-fluid">
+                 <h3>No Favourite Posts Found.</h3>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
